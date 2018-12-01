@@ -5,4 +5,15 @@ import { Component } from "@angular/core";
   templateUrl: "login/login.component.html",
   styleUrls: ["login/login.component.css"]
 })
-export class AppComponent {}
+export class AppComponent {
+  email = "nativescriptrocks@progress.com";
+  isLoggingIn = true;
+
+  submit() {
+    alert("You’re using: " + this.email);
+  }
+
+  toggleDisplay() {
+    this.isLoggingIn = !this.isLoggingIn;
+  }
+}
