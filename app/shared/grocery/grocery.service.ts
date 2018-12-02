@@ -44,4 +44,18 @@ export class GroceryService {
         console.log(JSON.stringify(error.json()));
         return Observable.throw(error);
     }
+
+    add(name: string) {
+        return this.http.post(
+            this.baseUrl,
+            JSON.stringify({ Name: name }),
+            { headers: this.getCommonHeaders() }
+        ).pipe(
+            map(res => res.json()),
+            map(data => {
+                return new Grocery(data._id, name);
+            }),
+            catchError(this.handleErrors)
+        );
+    }
 }
