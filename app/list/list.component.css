@@ -16,3 +16,11 @@
     border-bottom-width: 1;
     border-bottom-color: gray;
   }
+
+  .delete-view {
+    background-color: #CB1D00;
+    padding: 20;
+  }
+  .delete-view Image {
+    color: white;
+  }

@@ -12,6 +12,10 @@ import { Page } from "tns-core-modules/ui/page";
   styleUrls: ["login/login.component.css"]
 })
 export class LoginComponent implements OnInit {
+
+  isLoading = false;
+
+
   ngOnInit() {
     this.page.actionBarHidden = true;
   }
@@ -25,14 +29,18 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
+    this.isLoading = true;
     if (this.isLoggingIn) {
       this.login();
+      // this.isLoading = false;
     } else {
+      
       this.signUp();
     }
   }
   
   login() {
+    this.isLoading = true;
     this.userService.login(this.user)
       .subscribe(
         () => this.router.navigate(["/list"]),

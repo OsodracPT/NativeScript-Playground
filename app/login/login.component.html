@@ -8,7 +8,11 @@
         <TextField hint="Password" secure="true"
         [(ngModel)]="user.password" class="input input-border"></TextField>
 
+        <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+
         <Button [text]="isLoggingIn ? 'Sign in' : 'Sign up'" class="btn btn-primary" (tap)="submit()"></Button>
         <Button [text]="isLoggingIn ? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()"></Button>
+
     </StackLayout>
+
 </FlexboxLayout>
