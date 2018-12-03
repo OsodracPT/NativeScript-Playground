@@ -6,8 +6,8 @@
     <TextField #groceryTextField [(ngModel)]="grocery" hint="Enter a grocery item" col="0"></TextField>
     <Image src="~/images/add.png" (tap)="add()" col="1"></Image>
   </GridLayout>
-
-  <RadListView row="1" [items]="groceryList"
+  
+  <RadListView row="1" [items]="groceryList" [class.visible]="listLoaded"
   swipeActions="true" (itemSwipeProgressStarted)="onSwipeCellStarted($event)">
 
   <ng-template let-item="item">

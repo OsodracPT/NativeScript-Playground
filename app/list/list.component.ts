@@ -16,18 +16,20 @@ export class ListComponent implements OnInit {
   grocery = "";
   @ViewChild("groceryTextField") groceryTextField: ElementRef;
   isLoading = false;
+  listLoaded = false;
 
   constructor(private groceryService: GroceryService) {}
 
   ngOnInit() {
     this.isLoading = true;
     this.groceryService.load()
-    .subscribe(loadedGroceries => {
-      loadedGroceries.forEach((groceryObject) => {
-        this.groceryList.unshift(groceryObject);
+      .subscribe(loadedGroceries => {
+        loadedGroceries.forEach((groceryObject) => {
+          this.groceryList.unshift(groceryObject);
+        });
+        this.isLoading = false;
+        this.listLoaded = true;
       });
-      this.isLoading = false;
-    });
   }
 
   add() {
